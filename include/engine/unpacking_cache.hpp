@@ -36,10 +36,17 @@ class UnpackingCache
 {
     std::unordered_map<std::tuple<NodeID, NodeID, std::size_t>, EdgeDuration> cache;
 
+    // private:
+    //   std::string timestamp = 0;
+
   public:
     UnpackingCache(){};
 
-    void Clear() { cache.clear(); }
+    void Clear()
+    {
+        // get the timestamp and if it doesn't match then clear the cache
+        cache.clear();
+    }
 
     bool IsEdgeInCache(std::tuple<NodeID, NodeID, std::size_t> edge)
     {

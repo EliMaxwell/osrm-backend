@@ -84,7 +84,9 @@ class DataWatchdogImpl<AlgorithmT, datafacade::ContiguousInternalMemoryDataFacad
                 auto region = barrier.data().region;
                 facade_factory =
                     DataFacadeFactory<datafacade::ContiguousInternalMemoryDataFacade, AlgorithmT>(
-                        std::make_shared<datafacade::SharedMemoryAllocator>(region));
+                        std::make_shared<datafacade::SharedMemoryAllocator>(region)
+                        // timestamp parameter
+                        );
                 timestamp = barrier.data().timestamp;
                 util::Log() << "updated facade to region " << region << " with timestamp "
                             << timestamp;
